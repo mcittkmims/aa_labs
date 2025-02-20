@@ -217,9 +217,27 @@ def plot_fibonacci_times(n_values, recursive_times, dynamic_times, matrix_times,
     plt.plot(n_values, iterative_times, marker='o', label='Iterative')
     plt.plot(n_values, fast_doubling_times, marker='o', label='Fast Doubling')
 
-    plt.xlabel('n (Fibonacci Index)')
-    plt.ylabel('Time (seconds)')
-    plt.title('Time to Compute nth Fibonacci Number')
+    plt.xlabel('n')
+    plt.ylabel('time (s)')
+    plt.title('time to compute nth fibonacci number')
+
+    plt.grid(True, which='both')
+    plt.minorticks_on()
+
+    # legend outside to the right of the graph
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+    plt.tight_layout()
+
+    plt.show()
+
+
+# show only one method
+def plot_one_fibonacci_times(n_values, times, label):
+    plt.figure(figsize=(10, 6))
+    plt.plot(n_values, times, marker='o', label=label)
+    plt.xlabel('n')
+    plt.ylabel('time (s)')
+    plt.title('time to compute nth fibonacci number')
 
     plt.grid(True, which='both')
     plt.minorticks_on()
@@ -232,9 +250,9 @@ def plot_fibonacci_times(n_values, recursive_times, dynamic_times, matrix_times,
 # -------------------------------------------------------------------------------
 
 
-n_values = range(0, 100000, 5700)
+n_values = range(3, 46, 3)
 
-# recursive_times = measure_times(n_values, recursive)
+recursive_times = measure_times(n_values, recursive)
 dynamic_times = measure_times(n_values, dynamic_programming)
 matrix_times = measure_times(n_values, matrix_power)
 binet_times = measure_times(n_values, binet_formula)
@@ -243,11 +261,10 @@ iterative_times = measure_times(n_values, iterative)
 fast_doubling_times = measure_times(n_values, fast_doubling)
 
 
-create_table_without_recursive(n_values, dynamic_times, matrix_times,
+create_table(n_values, recursive_times, dynamic_times, matrix_times,
                                binet_times, memoization_times, iterative_times,
                                fast_doubling_times)
 
 
-plot_fibonacci_times_without_recursive(n_values, dynamic_times, matrix_times,
-                                       binet_times, memoization_times,
-                                       iterative_times, fast_doubling_times)
+plot_one_fibonacci_times(n_values, recursive_times,'Recursive')
+

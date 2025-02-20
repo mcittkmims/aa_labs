@@ -1,0 +1,39 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# PyCharm project files
+.idea/
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Test directories
+.nosetests/
+coverage/
+*.cover
+*.tox/
+*.nox/
+*.coverage.*
+*.hypothesis/
+
+# IDE-specific
+.vscode/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env

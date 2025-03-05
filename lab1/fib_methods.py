@@ -250,9 +250,10 @@ def plot_one_fibonacci_times(n_values, times, label):
 # -------------------------------------------------------------------------------
 
 
-n_values = range(3, 46, 3)
+# n_values = [5, 7, 10, 12, 15, 17, 20,22, 25, 27, 30, 32, 35, 37, 40, 42, 45]
+n_values = [501, 631, 794, 1000, 1259, 1585, 1995, 2512, 3162, 3981, 5012, 6310, 7943, 10000, 12589, 15849]
 
-recursive_times = measure_times(n_values, recursive)
+# recursive_times = measure_times(n_values, recursive)
 dynamic_times = measure_times(n_values, dynamic_programming)
 matrix_times = measure_times(n_values, matrix_power)
 binet_times = measure_times(n_values, binet_formula)
@@ -261,10 +262,19 @@ iterative_times = measure_times(n_values, iterative)
 fast_doubling_times = measure_times(n_values, fast_doubling)
 
 
-create_table(n_values, recursive_times, dynamic_times, matrix_times,
+create_table_without_recursive(n_values, dynamic_times, matrix_times,
                                binet_times, memoization_times, iterative_times,
                                fast_doubling_times)
 
+plot_fibonacci_times_without_recursive(n_values, dynamic_times, matrix_times,
+                               binet_times, memoization_times, iterative_times,
+                               fast_doubling_times)
 
-plot_one_fibonacci_times(n_values, recursive_times,'Recursive')
+# plot_one_fibonacci_times(n_values, recursive_times, 'Recursive Method')
+# plot_one_fibonacci_times(n_values,dynamic_times, 'Dynamic Method')
+# plot_one_fibonacci_times(n_values, fast_doubling_times,'Fast Doubling Method')
+# plot_one_fibonacci_times(n_values, matrix_times, 'Matrix Power Method')
+# plot_one_fibonacci_times(n_values, binet_times, 'Binet Formula Method')
+# plot_one_fibonacci_times(n_values, memoization_times, 'Memoization Method')
+# plot_one_fibonacci_times(n_values, iterative_times, 'Iterative Method')
 

@@ -1,8 +1,9 @@
 import random
 import time
 import matplotlib.pyplot as plt
+import matplotlib
 import sys
-
+matplotlib.use('TkAgg')
 sys.setrecursionlimit(10 ** 6)
 
 
